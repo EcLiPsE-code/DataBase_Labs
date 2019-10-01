@@ -1,0 +1,11 @@
+F:\Learning\DB_Labs\DataBase_Labs\Lab_2\EFConsole\EFConsole\bin\Debug\netcoreapp2.1\EFConsole.deps.json
+F:\Learning\DB_Labs\DataBase_Labs\Lab_2\EFConsole\EFConsole\bin\Debug\netcoreapp2.1\EFConsole.runtimeconfig.json
+F:\Learning\DB_Labs\DataBase_Labs\Lab_2\EFConsole\EFConsole\bin\Debug\netcoreapp2.1\EFConsole.runtimeconfig.dev.json
+F:\Learning\DB_Labs\DataBase_Labs\Lab_2\EFConsole\EFConsole\bin\Debug\netcoreapp2.1\EFConsole.dll
+F:\Learning\DB_Labs\DataBase_Labs\Lab_2\EFConsole\EFConsole\obj\Debug\netcoreapp2.1\EFConsole.csprojAssemblyReference.cache
+F:\Learning\DB_Labs\DataBase_Labs\Lab_2\EFConsole\EFConsole\obj\Debug\netcoreapp2.1\EFConsole.csproj.CoreCompileInputs.cache
+F:\Learning\DB_Labs\DataBase_Labs\Lab_2\EFConsole\EFConsole\obj\Debug\netcoreapp2.1\EFConsole.AssemblyInfoInputs.cache
+F:\Learning\DB_Labs\DataBase_Labs\Lab_2\EFConsole\EFConsole\obj\Debug\netcoreapp2.1\EFConsole.AssemblyInfo.cs
+F:\Learning\DB_Labs\DataBase_Labs\Lab_2\EFConsole\EFConsole\bin\Debug\netcoreapp2.1\EFConsole.pdb
+F:\Learning\DB_Labs\DataBase_Labs\Lab_2\EFConsole\EFConsole\obj\Debug\netcoreapp2.1\EFConsole.dll
+F:\Learning\DB_Labs\DataBase_Labs\Lab_2\EFConsole\EFConsole\obj\Debug\netcoreapp2.1\EFConsole.pdb
