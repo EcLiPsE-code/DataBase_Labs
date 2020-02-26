@@ -1,0 +1,36 @@
+﻿@model IEnumerable<CompanyASP.Models.UnitValuationFact>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <title>Фактические показатели подразделений</title>
+</head>
+<body>
+    <h3>Фактические показатели</h3>
+    <table>
+        <tr>
+            <td>Код фактических показателей</td>
+            <td>Название подразделения</td>
+            <td>Затраты на подразделения</td>
+            <td>Доходы от подразделения</td>
+        </tr>
+        @foreach(var fact in Model)
+        {
+            <tr>
+                <td>@fact.UnitValuationFactID</td>
+                <td>@fact.Unit.FullName</td>
+                <td>@fact.Profit</td>
+                <td>@fact.Salary</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@fact.UnitValuationFactID">Редактировать</a> |
+                    <a asp-action="Details" asp-route-id="@fact.UnitValuationFactID">Детали</a> |
+                    <a asp-action="Delete" asp-route-id="@fact.UnitValuationFactID">Удалить</a>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

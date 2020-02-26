@@ -65,7 +65,6 @@ D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\obj\Debug\netcoreapp3.0\
 D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\obj\Debug\netcoreapp3.0\Company.RazorTargetAssemblyInfo.cache
 D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\obj\Debug\netcoreapp3.0\Company.RazorTargetAssemblyInfo.cs
 D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\obj\Debug\netcoreapp3.0\Company.csproj.CopyComplete
-D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\obj\Debug\netcoreapp3.0\Company.MvcApplicationPartsAssemblyInfo.cache
 D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\bin\Debug\netcoreapp3.0\Company.deps.json
 D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\bin\Debug\netcoreapp3.0\Company.runtimeconfig.json
 D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\bin\Debug\netcoreapp3.0\Company.runtimeconfig.dev.json
@@ -77,3 +76,11 @@ D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\bin\Debug\netcoreapp3.0\
 D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\obj\Debug\netcoreapp3.0\Company.Views.pdb
 D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\obj\Debug\netcoreapp3.0\Company.dll
 D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\obj\Debug\netcoreapp3.0\Company.pdb
+D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\bin\Debug\netcoreapp3.0\System.Web.Mvc.dll
+D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\bin\Debug\netcoreapp3.0\System.Web.Razor.dll
+D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\bin\Debug\netcoreapp3.0\System.Web.Helpers.dll
+D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\bin\Debug\netcoreapp3.0\System.Web.WebPages.Deployment.dll
+D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\bin\Debug\netcoreapp3.0\System.Web.WebPages.Razor.dll
+D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\bin\Debug\netcoreapp3.0\System.Web.WebPages.dll
+D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\bin\Debug\netcoreapp3.0\Microsoft.Web.Infrastructure.dll
+D:\Learning\DB_Labs\DataBase_Labs\Lab_3\Company\Company\obj\Debug\netcoreapp3.0\Company.MvcApplicationPartsAssemblyInfo.cache

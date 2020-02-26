@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CompanyASP.Models.UnitValuationPlan>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <html>
+    <head>
+        <title>Плановые показатели подразделений</title>
+    </head>
+    <body>
+        <h3>Плановые показатели</h3>
+        <table>
+            <tr>
+                <td>Код плановых показателей</td>
+                <td>Название подразделения</td>
+                <td>Затраты на подразделения</td>
+                <td>Доходы от подразделения</td>
+                <td>Фактические затраты</td>
+                <td>Фактические доходы</td>
+            </tr>
+            @foreach (var plan in Model)
+            {
+                <tr>
+                    <td>@plan.UnitValuationPlanID</td>
+                    <td>@plan.FullName</td>
+                    <td>@plan.Profit</td>
+                    <td>@plan.Salary</td>
+                    <td>@plan.UnitValuationFact.Profit</td>
+                    <td>@plan.UnitValuationFact.Salary</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@plan.UnitValuationPlanID">Редактировать</a> |
+                        <a asp-action="Details" asp-route-id="@plan.UnitValuationPlanID">Детали</a> |
+                        <a asp-action="Delete" asp-route-id="@plan.UnitValuationPlanID">Удалить</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </body>

@@ -21,35 +21,35 @@ namespace Company.Services
             rowsNumber = 20;
         }
 
-        public IEnumerable<Employee> GetEmployee()
+        public IEnumerable<Unit> GetUnit()
         {
-            return db.Employees.Take(rowsNumber).ToList();
+            return db.Units.Take(rowsNumber).ToList();
         }
 
-        public void AddEmployee(string cacheKey)
+        public void AddUnit(string cacheKey)
         {
-            IEnumerable<Employee> employee = db.Employees.Take(rowsNumber);
+            IEnumerable<Unit> unit = db.Units.Take(rowsNumber);
 
-            cache.Set(cacheKey, employee, new MemoryCacheEntryOptions
+            cache.Set(cacheKey, unit, new MemoryCacheEntryOptions
             {
                 AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
             });
 
         }
 
-        public IEnumerable<Employee> GetEmployee(string cacheKey)
+        public IEnumerable<Unit> GetUnit(string cacheKey)
         {
-            IEnumerable<Employee> employees = null;
-            if (!cache.TryGetValue(cacheKey, out employees))
+            IEnumerable<Unit> unit = null;
+            if (!cache.TryGetValue(cacheKey, out unit))
             {
-                employees = db.Employees.Take(rowsNumber).ToList();
-                if (employees != null)
+                unit = db.Units.Take(rowsNumber).ToList();
+                if (unit != null)
                 {
-                    cache.Set(cacheKey, employees,
+                    cache.Set(cacheKey, unit,
                     new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(5)));
                 }
             }
-            return employees;
+            return unit;
         }
     }
 }

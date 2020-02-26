@@ -3621,11 +3621,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Learning\\DB_Labs\\DataBase_Labs\\Lab_2\\EFConsole\\EFConsole\\EFConsole.csproj",
+      "projectUniqueName": "D:\\Learning\\DB_Labs\\DataBase_Labs\\Lab_2\\EFConsole\\EFConsole\\EFConsole.csproj",
       "projectName": "EFConsole",
-      "projectPath": "F:\\Learning\\DB_Labs\\DataBase_Labs\\Lab_2\\EFConsole\\EFConsole\\EFConsole.csproj",
+      "projectPath": "D:\\Learning\\DB_Labs\\DataBase_Labs\\Lab_2\\EFConsole\\EFConsole\\EFConsole.csproj",
       "packagesPath": "C:\\Users\\EcLiPsE\\.nuget\\packages\\",
-      "outputPath": "F:\\Learning\\DB_Labs\\DataBase_Labs\\Lab_2\\EFConsole\\EFConsole\\obj\\",
+      "outputPath": "D:\\Learning\\DB_Labs\\DataBase_Labs\\Lab_2\\EFConsole\\EFConsole\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3666,16 +3666,23 @@
             "version": "[2.2.6, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

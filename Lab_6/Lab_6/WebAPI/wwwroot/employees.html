@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Операции</title>
+    <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <link href="lib/jquery-ui/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <script src="lib/jquery-ui/jquery-ui.js"></script>
+    <script src="lib/jquery-ui/ui/i18n/datepicker-ru.js"></script>
+ 
+</head>
+<body>
+    <div class="container">
+        <h2>Список сотрудников</h2>
+        <form name="employeeForm">
+            <label for="employeeId" id="typeCRUD" name="typeCRUD">Добавить:</label>
+            <input type="hidden" name="employeeId" value="0" />
+            <div class="form-group">
+                <label for="fullName">ФИО:</label>
+                <input class="form-control" name="fullName" />
+            </div>
+            <div class="form-group">
+                <label for="salary">Зарплата:</label>
+                <input class="form-control" type="number" name="salary" />
+            </div>
+            <div class="form-group">
+                <label for="age">Возраст:</label>
+                <input class="form-control" type="number" name="age" />
+            </div>
+
+            <div class="form-group">
+                <label for="raiting">Рейтинг:</label>
+                <input class="form-control" type="number" name="raiting" />
+            </div>
+
+            <div class="form-group">
+                <label for="departament">Отдел:</label>
+                <select id="departamentId" name="departamentId"></select>
+            </div>
+            <div class="panel-body">
+                <button type="submit" class="btn btn-sm btn-primary">Сохранить</button>
+                <a id="reset" class="btn btn-sm btn-primary">Сбросить</a>
+            </div>
+        </form>
+
+
+        <table class="table table-condensed table-striped table-bordered">
+            <thead><tr><th>Id</th><th>ФИО</th><th>Зарплата</th><th>Возраст</th><th>Рейтинг</th><th>Отдел</th></tr></thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    
+    <script>
+
+        // Получение всех сотрудников
+        function getEmployees() {
+            $.ajax({
+                url: '/api/employees',
+                type: 'GET',
+                contentType: "application/json",
+                success: function (employees) {
+                    var rows = "";
+                    $.each(employees, function (index, employee) {
+                        rows += row(employee);
+                    })
+                    $("table tbody").append(rows);
+                }
+            });
+        }
+
+        function getDepartaments() {
+            var listItems = ""
+            $.ajax({
+                url: 'api/employees/departaments',
+                type: 'GET',
+                contentType: 'application/json',
+                success: function (departaments) {
+                    listItems = listItems + "<option value=0 selected>(выбор)</option>";
+                    $.each(departaments, function (index, departament) {
+                        listItems = listItems + "<option value='" + departament.id + "'>" + departament.fullName + "</option>";
+                    });
+                    $("#departamentId").html(listItems);
+                }
+            })
+        }
+
+        function getEmployee(id) {
+            $.ajax({
+                url: '/api/employees/' + id,
+                type: 'GET',
+                contentType: "aplication/json",
+                success: function (employeeы) {
+                    var form = document.forms["employeeForm"];
+                    form.elements["id"].value = id;
+                    form.elements["fullName"].value = employee.fullName;
+                    form.elements["salary"].value = employee.salary;
+                    form.elements["age"].selectedIndex = employee.age;
+                    form.elements["raiting"].selectedIndex = employee.raiting;
+                    form.elements["departamentId"].selectedIndex = employee.departamentId;
+                }
+            });
+        };
+
+        function createEmployee(fullName, salary, age, raiting, departamentId) {
+            $.ajax({
+                url: "/api/employees",
+                contentType: "application/json",
+                method: "POST",
+                data: JSON.stringify({
+                    fullName: fullName,
+                    salary: salary,
+                    age: age,
+                    raiting: raiting,
+                    departamentId: departamentId
+                }),
+                success: function (employees) {
+                    reset();
+                    var form = document.forms["employeeForm"];
+                    employee.post = form.elements["departamentId"].options[departamentId].text;
+                    $("table tbody").append(row(employee));
+                }
+            })
+        }
+
+        //editEmployee(9, "Стольный С.В.", 5, 2)
+        function editEmployee(employeeId, fullName, salary, age, raiting, departamentId) {
+            $.ajax({
+                url: "/api/employees/" + employeeId,
+                contentType: "application/json",
+                method: "PUT",
+                data: JSON.stringify({
+                    id: id,
+                    fullName: fullName,
+                    salary: salary,
+                    age: age,
+                    raiting: raiting,
+                    departamentId: departamentId
+                }),
+                success: function (employee) {
+                    reset();
+                    var form = document.forms["employeeForm"];
+                    employee.post = form.elements["departamentId"].options[departamentId].text;
+                    $("tr[data-rowid='" + employee.id + "']").replaceWith(row(employee));
+                }
+            })
+        }
+
+        // сброс формы
+        function reset() {
+            var form = document.forms["employeeForm"];
+            form.reset();
+            form.elements["employeeId"].value = 0;
+            $("#typeCRUD").html("Добавить:");
+        }
+
+        function deleteEmpolyee(id) {
+            $.ajax({
+                url: "/api/employees/" + id,
+                contentType: "application/json",
+                method: "DELETE",
+                success: function (employee) {
+                    $("tr[data-rowid='" + employee.id + "']").remove();
+                }
+            })
+        }
+
+        var row = function (employee) {
+            return "<tr data-rowid='" + employee.id + "'><td>" + employee.id + "</td>" +
+                "<td>" + employee.fullName + "</td>" +
+                "<td>" + employee.salary + "</td>" +
+                "<td>" + employee.age + "</td>" +
+                "<td>" + employee.raiting + "</td>" +
+                "<td>" + employee.departamentId + "</td>" +
+                "<td><a class='editLink' data-id='" + employee.id + "'>Изменить</a> | " +
+                "<a class='removeLink' data-id='" + employee.id + "'>Удалить</a></td></tr>";
+        }
+
+        $("#reset").click(function (e) {
+            e.preventDefault();
+            reset();
+        })
+
+        $("form").submit(function (e) {
+
+            e.preventDefault();
+            var employeeId = this.elements["employeeId"].value;
+            var fullName = this.elements["fullName"].value;
+            var salary = this.elements["salary"].value;
+            var age = this.elements["age"].value;
+            var raiting = this.elements["raiting"].value;
+            var departamentId = this.elements["departamentId"].selectedIndex;
+
+            if (employeeId == 0)
+                createEmployee(fullName, salary, age, raiting, departamentId);
+            else
+                editEmployee(employeeId, fullName, salary, age, raiting, departamentId);
+        });
+
+        // нажатие на ссылку Изменить
+        $("body").on("click", ".editLink", function () {
+            var id = $(this).data("id");
+            $("#typeCRUD").html("Изменить:");
+            getEmployee(id);
+        });
+        // нажатие на ссылку Удалить
+        $("body").on("click", ".removeLink", function () {
+            var id = $(this).data("id");
+            deleteEmpolyee(id);
+            reset();
+        });
+
+        getEmployees();
+        getDepartaments();
+    </script>
+</body>
+
+</html>

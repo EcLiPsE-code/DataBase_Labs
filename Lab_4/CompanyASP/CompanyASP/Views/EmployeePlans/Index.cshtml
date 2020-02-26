@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CompanyASP.Models.EmployeePlan>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <title>Фактические показатели сотрудников</title>
+</head>
+<body>
+    <h3>Фактические показатели сотрудников</h3>
+    <table>
+        <tr>
+            <td>Код планового показателя</td>
+            <td>ФИО сотрудника</td>
+            <td>Квартальный показатель</td>
+            <td>Годовой показатель</td>
+            <td>Годовые затраты</td>
+            <td>Квартальные затраты</td>
+            <td>Фактические квартальные показатели</td>
+            <td>Фактические годовые показатели</td>
+        </tr>
+        @foreach (var employeePlan in Model)
+        {
+            <tr>
+                <td>@employeePlan.EmployeeFactID</td>
+                <td>@employeePlan.FullName</td>
+                <td>@employeePlan.Quarter</td>
+                <td>@employeePlan.Year</td>
+                <td>@employeePlan.ProfitYear</td>
+                <td>@employeePlan.ProfitQuarter</td>
+                <td>@employeePlan.EmployeeFact.ProfitQuarter</td>
+                <td>@employeePlan.EmployeeFact.ProfitYear</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@employeePlan.EmployeePlanID">Редактировать</a> |
+                    <a asp-action="Details" asp-route-id="@employeePlan.EmployeePlanID">Детали</a> |
+                    <a asp-action="Delete" asp-route-id="@employeePlan.EmployeePlanID">Удалить</a>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
+
+

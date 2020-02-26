@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using Company.DATA;
 using Company.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace Company.Services
@@ -50,6 +53,10 @@ namespace Company.Services
                 }
             }
             return employees;
+        }
+        public IEnumerable<Employee> ReadEmployee(string fullName)
+        {
+            return db.Employees.Where(employee => employee.FullName.Equals(fullName));
         }
     }
 }
